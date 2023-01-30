@@ -123,6 +123,7 @@
 -r:"Assets/Plugins/GitHub/Editor/GitHub.Unity.45.dll"
 -r:"Assets/Plugins/GitHub/Editor/GitHub.UnityShim.dll"
 -r:"Assets/Plugins/GitHub/Editor/sfw.net.dll"
+-r:"Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll"
 -r:"C:/Program Files/Unity 2021.3.7f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
 -r:"C:/Program Files/Unity 2021.3.7f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"C:/Program Files/Unity 2021.3.7f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
