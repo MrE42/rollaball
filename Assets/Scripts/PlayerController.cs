@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
     public float speed = 0;
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
+    public AudioSource source;
+    public AudioClip oof;
+    public AudioClip wow;
 
     private Rigidbody rb;
     private int count;
@@ -56,6 +59,20 @@ public class PlayerController : MonoBehaviour
             count = count + 1;
 
             SetCountText();
+            source.volume = 1.5f;
+            source.PlayOneShot(wow);
+        }
+
+        if (other.gameObject.CompareTag("GoSlow"))
+        {
+            speed *= 0.75f;
+            source.volume = 0.5f;
+            source.PlayOneShot(oof);
+
+            if(speed <= 3.0f)
+            {
+                other.gameObject.SetActive(false);
+            }
         }
     }
 }
