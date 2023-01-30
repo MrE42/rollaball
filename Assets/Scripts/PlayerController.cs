@@ -1,4 +1,4 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,21 +8,26 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 0;
     public TextMeshProUGUI countText;
+    public TextMeshProUGUI starText;
     public GameObject winTextObject;
-    public AudioSource source;
-    public AudioClip oof;
-    public AudioClip wow;
+    public GameObject star;
 
     private Rigidbody rb;
     private int count;
+    private int bits;
     private float movementX;
     private float movementY;
+
+    public AudioSource source;
+    public AudioClip oof;
+    public AudioClip wow;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         count = 0;
+        bits = 0;
 
         SetCountText();
         winTextObject.SetActive(false);
@@ -38,16 +43,26 @@ public class PlayerController : MonoBehaviour
 
     void SetCountText()
     {
-        countText.text = "Count:" + count.ToString();
+        countText.text = "Count: " + count.ToString();
         if (count >= 12)
         {
             winTextObject.SetActive(true);
         }
     }
 
+    void SetStarText()
+    {
+        starText.text = "Star Bits X " + bits.ToString();
+        if (bits >= 16 && star != null)
+        {
+            star.SetActive(true);
+        }
+    }
+
     void FixedUpdate()
     {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+
         rb.AddForce(movement * speed);
     }
 
@@ -59,20 +74,30 @@ public class PlayerController : MonoBehaviour
             count = count + 1;
 
             SetCountText();
-            source.volume = 1.5f;
-            source.PlayOneShot(wow);
         }
+        else if (other.gameObject.CompareTag("StarBit"))
+        {
+            other.gameObject.SetActive(false);
+            bits = bits + 1;
 
-        if (other.gameObject.CompareTag("GoSlow"))
+            SetStarText();
+        }
+        else if (other.gameObject.CompareTag("Star"))
+        {
+            gameObject.GetComponent<AudioSource>().clip = star.GetComponent<AudioSource>().clip;
+            gameObject.GetComponent<AudioSource>().Play();
+            star.SetActive(false);
+        }
+        else if (other.gameObject.CompareTag("GoSlow"))
         {
             speed *= 0.75f;
             source.volume = 0.5f;
             source.PlayOneShot(oof);
 
-            if(speed <= 3.0f)
+            if (speed <= 3.0f)
             {
                 other.gameObject.SetActive(false);
             }
         }
     }
-}
+}            
