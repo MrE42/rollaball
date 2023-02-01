@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TargetingSystem : MonoBehaviour, IPointerEnterHandler
+public class TargetingSystem : MonoBehaviour
 {
 
-    private int initialized;
+    public int initialized = 0;
     private Vector3 p_position;
     private Vector3 bit_position;
     private float speed = (float) 0.2;
@@ -24,15 +24,10 @@ public class TargetingSystem : MonoBehaviour, IPointerEnterHandler
     {
         if (initialized == 1)
         {
-            p_position = GameObject.FindGameObjectWithTag("Player").transform.position;
+            p_position = GameObject.FindGameObjectWithTag("MainCamera").transform.position;
             transform.position = Vector3.MoveTowards(transform.position, p_position, speed);
 
         }
 
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        initialized = 1;
     }
 }

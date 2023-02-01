@@ -4,10 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Launch
+  - CameraTrigger
+  - PlayerEyes
   - PickUp
-  - GoSlow
   - StarBit
   - Star
+  - GoSlow
+  - Ball
+  - Body
   layers:
   - Default
   - TransparentFX

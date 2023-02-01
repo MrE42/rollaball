@@ -24,6 +24,8 @@ namespace Valve.VR.Extras
         public event PointerEventHandler PointerOut;
         public event PointerEventHandler PointerClick;
 
+        public float maxDist = 10.0f;
+
         Transform previousContact = null;
 
 

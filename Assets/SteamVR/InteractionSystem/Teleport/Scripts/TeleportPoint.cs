@@ -29,6 +29,8 @@ namespace Valve.VR.InteractionSystem
 		public Color titleHighlightedColor;
 		public Color titleLockedColor;
 		public bool playerSpawnPoint = false;
+		public GameObject p;
+		public GameObject launcher;
 
 		//Private data
 		private bool gotReleventComponents = false;
@@ -312,6 +314,11 @@ namespace Valve.VR.InteractionSystem
 			titleText.text = title;
 
 			ReleaseRelevantComponents();
+		}
+
+		public void On()
+		{
+			//StarLauncher s = p.GetComponent<StarLauncher>();
 		}
 	}
 
