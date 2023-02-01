@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{e4391e06-4f98-3898-e116-60b06a55a92a}</ProjectGuid>
+    <ProjectGuid>{8cf0435c-f0eb-59b6-5893-951257b2984e}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -41,31 +41,31 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BallController.cs" />
+     <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\Rotator.cs" />
+     <Compile Include="Assets\Scripts\Revolve.cs" />
+     <Compile Include="Assets\DOTween\Modules\DOTweenModuleAudio.cs" />
+     <Compile Include="Assets\Scripts\Pacer.cs" />
+     <Compile Include="Assets\randomWalk.cs" />
+     <Compile Include="Assets\HeadDetection.cs" />
+     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
+     <Compile Include="Assets\StarLaunchScript.cs" />
      <Compile Include="Assets\StarAnimation.cs" />
      <Compile Include="Assets\Jammo-Character\Scripts\CharacterSkinController.cs" />
      <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics.cs" />
-     <Compile Include="Assets\DOTween\Modules\DOTweenModuleAudio.cs" />
+     <Compile Include="Assets\Scripts\TargetingSystem.cs" />
      <Compile Include="Assets\DOTween\Modules\DOTweenModuleSprite.cs" />
      <Compile Include="Assets\Jammo-Character\Scripts\MovementInput.cs" />
      <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
+     <Compile Include="Assets\Scripts\SpawnIn.cs" />
      <Compile Include="Assets\SpeedModifier.cs" />
      <Compile Include="Assets\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
-     <Compile Include="Assets\randomWalk.cs" />
+     <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\CameraTrigger.cs" />
-     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
      <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics2D.cs" />
      <Compile Include="Assets\PointerHandler.cs" />
      <Compile Include="Assets\StarLauncher.cs" />
-     <Compile Include="Assets\StarLaunchScript.cs" />
-     <Compile Include="Assets\Scripts\Pacer.cs" />
-     <Compile Include="Assets\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\BallController.cs" />
-     <Compile Include="Assets\Scripts\CameraController.cs" />
-     <Compile Include="Assets\Scripts\Revolve.cs" />
-     <Compile Include="Assets\Scripts\TargetingSystem.cs" />
-     <Compile Include="Assets\Scripts\SpawnIn.cs" />
-     <Compile Include="Assets\Scripts\Rotator.cs" />
-     <Compile Include="Assets\HeadDetection.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\StreamingAssets\SteamVR\bindings_logitech_stylus.json" />
@@ -348,17 +348,17 @@
      <Reference Include="UnityEditor.UnityConnectModule">
      <HintPath>C:\Program Files\Unity 2021.3.7f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
-     <Reference Include="DOTween">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Assets\DOTween\DOTween.dll</HintPath>
-     </Reference>
      <Reference Include="Valve.Newtonsoft.Json">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Assets\SteamVR\Input\Plugins\JSON.NET\Valve.Newtonsoft.Json.dll</HintPath>
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Assets\SteamVR\Input\Plugins\JSON.NET\Valve.Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="clipper_library">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\PackageCache\com.unity.cinemachine@2.8.6\Runtime\ThirdParty\clipper_library.dll</HintPath>
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\PackageCache\com.unity.cinemachine@2.8.6\Runtime\ThirdParty\clipper_library.dll</HintPath>
      </Reference>
      <Reference Include="Newtonsoft.Json">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
+     </Reference>
+     <Reference Include="DOTween">
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Assets\DOTween\DOTween.dll</HintPath>
      </Reference>
      <Reference Include="netstandard">
      <HintPath>C:\Program Files\Unity 2021.3.7f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
@@ -727,115 +727,115 @@
      <HintPath>C:\Program Files\Unity 2021.3.7f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Recorder.Editor">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Unity.Recorder.Editor.dll</HintPath>
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Unity.Recorder.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VSCode.Editor">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.XR.OpenVR">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Unity.XR.OpenVR.dll</HintPath>
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Unity.XR.OpenVR.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Recorder.Base">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Unity.Recorder.Base.dll</HintPath>
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Unity.Recorder.Base.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro.Editor">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.XR.Management.Editor">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Unity.XR.Management.Editor.dll</HintPath>
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Unity.XR.Management.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Subsystem.Registration">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Unity.Subsystem.Registration.dll</HintPath>
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Unity.Subsystem.Registration.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Postprocessing.Editor">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.PlasticSCM.Editor">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Rider.Editor">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.SpatialTracking">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\UnityEngine.SpatialTracking.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.UI">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.OpenVR.Editor">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Unity.XR.OpenVR.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Services.Core">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
-     </Reference>
-     <Reference Include="Cinemachine">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Cinemachine.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Services.Core.Analytics">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Postprocessing.Runtime">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="com.unity.cinemachine.editor">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Services.Core.Environments">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Timeline.Editor">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.Management">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Unity.XR.Management.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEditor.SpatialTracking">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\UnityEditor.SpatialTracking.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Recorder">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Unity.Recorder.dll</HintPath>
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.InputSystem">
-     <HintPath>C:\Users\Elijah Schoneweis\Downloads\MarioGalaxy-LaunchStar-better_version\MarioGalaxy-LaunchStar-better_version\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Rider.Editor">
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.PlasticSCM.Editor">
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.SpatialTracking">
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\UnityEngine.SpatialTracking.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.UI">
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.OpenVR.Editor">
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Unity.XR.OpenVR.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Services.Core">
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
+     </Reference>
+     <Reference Include="Cinemachine">
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Cinemachine.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Services.Core.Analytics">
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Postprocessing.Runtime">
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="com.unity.cinemachine.editor">
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Services.Core.Environments">
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Timeline.Editor">
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.Management">
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Unity.XR.Management.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.SpatialTracking">
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\UnityEditor.SpatialTracking.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Recorder">
+     <HintPath>C:\Users\Elijah Schoneweis\Documents\GitHub\rollaball\Library\ScriptAssemblies\Unity.Recorder.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="SteamVR_Input_Editor.csproj">
-      <Project>{24cedfe8-51e6-dd4e-3b12-a03797deb229}</Project>
+      <Project>{38e95387-b13c-50c1-1eb0-40563d7a0922}</Project>
       <Name>SteamVR_Input_Editor</Name>
     </ProjectReference>
     <ProjectReference Include="SteamVR.csproj">
-      <Project>{1947de95-2415-3445-e34e-3bdf888909ad}</Project>
+      <Project>{92300e1e-bd52-b9c9-f81b-a41473291f1f}</Project>
       <Name>SteamVR</Name>
     </ProjectReference>
     <ProjectReference Include="SteamVR_Actions.csproj">
-      <Project>{243810a6-9e75-90f5-5965-d4194de7e62a}</Project>
+      <Project>{e0414a96-c625-4128-69e8-628bde26f74a}</Project>
       <Name>SteamVR_Actions</Name>
     </ProjectReference>
     <ProjectReference Include="SteamVR_Windows_EditorHelper.csproj">
-      <Project>{96b77d4a-5f43-fd2c-a8b6-75a6a2215d8a}</Project>
+      <Project>{f8461294-2f14-1d50-9716-6f8a94bc6917}</Project>
       <Name>SteamVR_Windows_EditorHelper</Name>
     </ProjectReference>
     <ProjectReference Include="SteamVR_Editor.csproj">
-      <Project>{cc9c0c34-ac8d-bb82-a83a-c12b633626af}</Project>
+      <Project>{5c92beb5-0882-c92c-2bc2-946754896146}</Project>
       <Name>SteamVR_Editor</Name>
     </ProjectReference>
   </ItemGroup>
